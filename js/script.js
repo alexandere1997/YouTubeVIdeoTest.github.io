@@ -99,6 +99,10 @@ more.addEventListener("click", () => {
     setTimeout(() => {
       card.classList.remove('videos__item-active');
     }, 10);
+    if(night === true) {
+      card.querySelector(".videos__item-descr").style.color = '#fff';
+      card.querySelector(".videos__item-views").style.color = '#fff';
+    }
     bindNewModal(card);
   }
   sliceTitle('.videos__item-descr', 100);
@@ -158,6 +162,7 @@ modal.addEventListener('click', (e) => {
     closeModal();
   }
 });
+document.addEventListener('keydown', function (evt) {if(evt.keyCode === 27){ closeModal(); }});
 
 function createVideo() {
   var tag = document.createElement('script');
